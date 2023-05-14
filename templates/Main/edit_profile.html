@@ -1,0 +1,45 @@
+{% extends 'Main/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<section class="editProfile">
+         
+   <div class="account_overview_block">
+      <div class="heading">
+         <h1>Account</h1>
+      </div>
+      <div class="profile_details">
+         <div class="header">
+            <h1>Profile Details</h1>
+         </div>
+
+         <form method="POST">
+            <input type="hidden" name="csrfmiddlewaretoken" value="0JnRtcfpzmMV7ib9OjKuEyt4bCyYtbFIqmnEvWBxoJUwzREvP2OxNlIFjw3T7xds">
+            <ul class="main_info_block_profile_details">
+               <li>
+                  <p>Username</p>
+                  <label>
+                     <input type="text" name="username" value="{{ form.username }}" />
+                  </label>
+               </li>
+               <li>
+                  <p>Email</p>
+                  <label>
+                     <input type="email" name="email" value="{{ form.email }}" />
+                  </label>
+               </li>
+               <li class="changes_edit_profile">
+                  <a href="{% url 'main' %}">Discard</a>
+                  <button type="submit">Save changes</button>
+               </li>
+            </ul>
+         </form>
+
+         
+      </div>
+   </div>
+
+</section>
+
+{% endblock %}

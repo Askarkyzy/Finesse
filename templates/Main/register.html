@@ -1,0 +1,45 @@
+{% extends 'Main/base.html' %}
+
+{% load static %}
+{% block content %}
+   <section class="login-form-container">
+
+      <form method="POST">
+         <h3>Create account</h3>
+         {% csrf_token %}
+
+         <label> <!--for="full_name"-->
+            <span>Username</span>
+            {{ form.username }}
+         </label>
+
+         <label> <!--for="email"-->
+            <span>Email</span>
+            {{ form.email }}
+<!--            <input type="email" name="email" class="box" placeholder="Enter your email">-->
+         </label>
+
+         <label > <!--for="password"-->
+            <span>Password</span>
+            {{ form.password }}
+<!--            <input type="password" name="password1" class="box" placeholder="Enter your password">-->
+         </label>
+
+         <label > <!--for="re_enter_password"-->
+            <span>Re-enter Password</span>
+            {{ form.password1 }}
+<!--            <input type="password" name="password2" class="box" placeholder="Re-enter your password">-->
+         </label>
+
+         <div class="error_message">
+            {% for message in messages %}
+               <p>{{ message }}</p>
+            {% endfor %}
+         </div>
+         <button type="submit" class="btn-another reg" style="background-color: var(--addit);
+         color: var(--black);">register</button>
+      
+      </form>
+   </section>
+
+{% endblock %}
