@@ -1,0 +1,16 @@
+{% extends 'Main/base.html' %}{% load static %}
+{% block content %}
+      <section class="search">
+          <!--<h2 class="header">Search results:</h2>-->          {% for post in allPosts %}
+          {% if allPosts|length < 1 %}              <p>No search results</p>
+              Your search query: <b>{{query}} </b> did not match any documents. <br>              Suggestions:
+              <ul>                 <li>Make sure that all words are spelled correctly.</li>
+                 <li>Try different keywords.</li>                 <li>Try more general keywords.</li>
+                 <li>Try fewer keywords.</li>              </ul>
+          {% endif %}
+            <div class="pro">
+                <img src="{{post.image.url}}">                <div class="content">
+                    <div class="title">{{post.name}}</div>                    <div class="price">$ {{post.price}}</div>
+                </div>            </div>
+          {% endfor %}
+      </section>{% endblock %}

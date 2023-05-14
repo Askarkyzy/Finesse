@@ -32,12 +32,16 @@
 
          <div class="icons">
             <div class="account">
+               
                {% if user.is_superuser %}
                   <a href="{% url 'check_users' %}">All users</a>
-               {% endif %}
-               {% if user.is_authenticated %}
+               {% elif user.is_authenticated %}
                   <a href="{% url 'cabinet' %}">Cabinet</a>
+               {% else %}
+                  <a href="">Статус заказа</a>
                {% endif %}
+               
+               
             </div>
             <a href="{% url 'loginpage' %}" class="login-btn"><i class='bx bx-user'></i></a>
             <a href="" class="cart"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 14 14"><path fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-linejoin="round" d="M12.28 6H1.72a1 1 0 0 0-1 1.2l1.1 5.5a1 1 0 0 0 1 .8h8.36a1 1 0 0 0 1-.8l1.1-5.5a1 1 0 0 0-1-1.2ZM9 2.5L11 6M3 6l2-3.5"/></svg></a>
